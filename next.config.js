@@ -2,10 +2,11 @@
 const path = require("path");
 const nextConfig = {
   reactStrictMode: true,
+  swcMinify:true,
   scssOptions: {
     includePaths: [
       path.join(__dirname, "styles")],
-      prependDate:`@import "./base.scss";`,
+      prependDate:`@import "./src/styles/base.scss";`,
   }
 }
 

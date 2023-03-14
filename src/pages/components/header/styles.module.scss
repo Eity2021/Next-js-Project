@@ -1,6 +1,7 @@
+@import "../../../styles//base.scss";
 .header{
     height: 100%;
-    box-shadow:rgba(99,99,99,0.2) 0px 2px 8px 0px;
+    box-shadow:$shadow-1;
 }
 .addLink{
     height: 54px;
