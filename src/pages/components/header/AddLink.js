@@ -4,7 +4,7 @@ import styles from "./styles.module.scss"
 export default function AddLink() {
   return (
     <div>
-        <Link href="/browse" >
+        <Link href="/browser" >
             <div className={styles.addLink}></div>
         </Link>
     </div>
