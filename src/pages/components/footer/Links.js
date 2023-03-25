@@ -1,101 +1,105 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react'
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 import styles from "./styles.module.scss";
-import logo from "../../../../public/images/final-logo.png"
+import logo from "../../../../public/images/final-logo.png";
 const links = [
   {
-    heading:"SHOPPAY",
-    links:[
+    heading: "SHOPPAY",
+    links: [
       {
-        name:"About us",
-        link:"",
+        id: 1,
+        name: "About us",
+        link: "",
       },
       {
-        name:"Contact us",
-        link:"",
+        id: 2,
+        name: "Contact us",
+        link: "",
       },
       {
-        name:"Social Responsibility",
-        link:"",
+        id: 3,
+        name: "Social Responsibility",
+        link: "",
       },
       {
-        name:"",
-        link:"",
+        id: 4,
+        name: "",
+        link: "",
       },
-      
-    ]
+    ],
   },
   {
-    heading:"HELP & SUPPORT",
-    links:[
+    heading: "HELP & SUPPORT",
+    links: [
       {
-        name:"Shipping Info",
-        link:"",
+        id: 1,
+        name: "Shipping Info",
+        link: "",
       },
       {
-        name:"Returns",
-        link:"",
+        id: 2,
+        name: "Returns",
+        link: "",
       },
       {
-        name:"How To Order",
-        link:"",
+        id: 3,
+        name: "How To Order",
+        link: "",
       },
       {
-        name:"How To Track",
-        link:"",
+        id: 4,
+        name: "How To Track",
+        link: "",
       },
       {
-        name:"Size Guide",
-        link:"",
+        id: 5,
+        name: "Size Guide",
+        link: "",
       },
-    ]
+    ],
   },
   {
-    heading:"Customer service",
-    links:[
+    heading: "CUSTOMER SERVICE",
+    links: [
       {
-        name:"Customer service",
-        link:"",
+        id: 1,
+        name: "Customer service",
+        link: "",
       },
       {
-        name:"terms & Conditions",
-        link:"",
+        id: 2,
+        name: "terms & Conditions",
+        link: "",
       },
       {
-        name:"Consumers(transactions)",
-        link:"",
+        id: 3,
+        name: "Consumers(transactions)",
+        link: "",
       },
       {
-        name:"take our feedback survey",
-        link:"",
+        id: 4,
+        name: "take our feedback survey",
+        link: "",
       },
-    ]
-  }
-]
+    ],
+  },
+];
 export default function Links() {
-
   return (
     <div className={styles.footer__links}>
-      {
-        links.map((link,i) => (
-          <ul>
-            
-            {
-              i === 0 ? <Image src={logo}></Image> :<b>{link.heading}</b>
-            }
-            {
-              link.links.map((link) => (
-                <li>
-                <Link href={link.link}>{link.name}</Link>
-              </li>
-              ))
-            }
-          </ul>
-        ))
-      }
-
+      {links.map((link, i) => (
+        <ul>
+          {i === 0 ? <Image src={logo} alt=""></Image> : <b>{link.heading}</b>}
+          {link.links.map((link) => (
+            <li>
+              <Link href={link.link} key={link.id}>
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      ))}
     </div>
   )
-}
-
+};

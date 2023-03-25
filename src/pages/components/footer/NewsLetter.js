@@ -13,7 +13,7 @@ export default function NewsLetter() {
         </div>
         <p>
             By clicking the SUBSCRIBE button,you are agreeing to 
-            <Link href="">ourPrivacy & Cookie Policy</Link>
+            <Link href=""> Our Privacy & Cookie Policy</Link>
         </p>
     </div>
   )
