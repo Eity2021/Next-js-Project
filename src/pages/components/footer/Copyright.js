@@ -10,7 +10,7 @@ const data = [
   { id: 4, name: "Terms & Conditions", link: "" },
   { id: 5, name: "Copyright Notice", link: "" },
 ];
-export default function Copyright() {
+export default function Copyright({country}) {
   return (
     <div className={styles.footer__copyright}>
       <section>©2023 E-commerce All Rights Reserved</section>
@@ -25,7 +25,7 @@ export default function Copyright() {
         ))}
         <li>
           <a>
-            <MdLocationOn></MdLocationOn> Dhaka,Bangladesh
+            <MdLocationOn></MdLocationOn>{country.name}
           </a>
         </li>
       </ul>
