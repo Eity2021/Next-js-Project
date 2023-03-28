@@ -3,9 +3,10 @@ import { Provider } from "react-redux";
 import store from "../store/index";
 import { persistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
-import Head from 'next/head'
+import Head from "next/head";
+import { SessionProvider } from "next-auth/react";
 let persister = persistStore(store);
-function myApp({ Component, pageProps }) {
+function myApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
     <>
       <Head>
@@ -14,11 +15,13 @@ function myApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Provider store={store}>
-        <persistGate loading={null} persister={persister}>
-          <Component {...pageProps} />
-        </persistGate>
-      </Provider>
+      <SessionProvider session={session}>
+        <Provider store={store}>
+          <persistGate loading={null} persister={persister}>
+            <Component {...pageProps} />
+          </persistGate>
+        </Provider>
+      </SessionProvider>
     </>
   );
 }

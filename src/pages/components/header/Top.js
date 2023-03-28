@@ -38,11 +38,9 @@ export default function Top({country}) {
               <span>Wishlist</span>{" "}
             </Link>
           </li>
-          <li className={styles.li} 
-          onMouseOver= {() => setVisible(true)}
-          onMouseLeave= {() => setVisible(false)}>
+          <li className={styles.li} onMouseOver= {() => setVisible(true)}onMouseLeave= {() => setVisible(false)}>
             {loggedIn ? (
-              <li className={styles.li}>
+              <div className={styles.li}>
                 <div className={styles.flex}>
                   <img
                     src="https://th.bing.com/th/id/OIP.rAsHkatTm_T2OirqVk1TyQHaEc?pid=ImgDet&rs=1"
@@ -51,15 +49,15 @@ export default function Top({country}) {
                   <span>Marufa Akter Eity</span>
                   <IoMdArrowDropdown></IoMdArrowDropdown>
                 </div>
-              </li>
+              </div>
             ) : (
-              <li className={styles.li}>
+              <div className={styles.li}>
                 <div className={styles.flex}>
                   <RiAccountPinCircleLine></RiAccountPinCircleLine>
                   <span>Account</span>
                   <IoMdArrowDropdown></IoMdArrowDropdown>
                 </div>
-              </li>
+              </div>
             )}
             { visible && <UserMenu loggedIn={loggedIn} />}
           </li>

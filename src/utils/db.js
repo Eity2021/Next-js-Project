@@ -1,4 +1,7 @@
 import mongoose from "mongoose";
+// const dotenv = require('dotenv')
+// dotenv.config({path:__dirname+'/.env'})
+
 const connection = {};
 
 export async function connectDb(){ 
@@ -22,17 +25,19 @@ export async function connectDb(){
     connection.isConnected=db.connections[0].readyState;
 }
 
-export async function disconnectDb(){
-    if(connection.isConnected){
-      if(process.env.NODE_END === "production") {
-        await mongoose.disconnect();
-        connection.isConnected = false;
-      }else {
-        console.log("not disconnecting from the database");
-      }
-    }
-  }
+
+
+// export async function disconnectDb(){
+//     if(connection.isConnected){
+//       if(process.env.NODE_END === "production") {
+//         await mongoose.disconnect();
+//         connection.isConnected = false;
+//       }else {
+//         console.log("not disconnecting from the database");
+//       }
+//     }
+//   }
   
-  const db = {connectDb,disconnectDb};
+  const db = {connectDb};
   
-  export default db;
+export default db;
