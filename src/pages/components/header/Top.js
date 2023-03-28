@@ -6,8 +6,9 @@ import { RiAccountPinCircleLine } from "react-icons/ri";
 import { IoMdArrowDropdown } from "react-icons/io";
 import Link from "next/link";
 import UserMenu from "./UserMenu";
+import { useSession } from "next-auth/react";
 export default function Top({country}) {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const { data: session } = useSession()
   const [visible, setVisible] = useState(false);
   return (
     <div className={styles.top}>
@@ -39,14 +40,14 @@ export default function Top({country}) {
             </Link>
           </li>
           <li className={styles.li} onMouseOver= {() => setVisible(true)}onMouseLeave= {() => setVisible(false)}>
-            {loggedIn ? (
+            {session ? (
               <div className={styles.li}>
                 <div className={styles.flex}>
                   <img
-                    src="https://th.bing.com/th/id/OIP.rAsHkatTm_T2OirqVk1TyQHaEc?pid=ImgDet&rs=1"
+                    src={session.user.image}
                     alt=""
                   ></img>
-                  <span>Marufa Akter Eity</span>
+                  <span>{session.user.name}</span>
                   <IoMdArrowDropdown></IoMdArrowDropdown>
                 </div>
               </div>
@@ -59,7 +60,7 @@ export default function Top({country}) {
                 </div>
               </div>
             )}
-            { visible && <UserMenu loggedIn={loggedIn} />}
+            { visible && <UserMenu session={session} />}
           </li>
         </ul>
       </div>

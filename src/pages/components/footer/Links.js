@@ -92,8 +92,8 @@ export default function Links() {
         <ul>
           {i === 0 ? <Image src={logo} alt=""></Image> : <b>{link.heading}</b>}
           {link.links.map((link) => (
-            <li>
-              <Link href={link.link} key={link.id}>
+            <li key={link.id}>
+              <Link href={link.link} >
                 {link.name}
               </Link>
             </li>

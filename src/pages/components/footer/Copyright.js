@@ -17,8 +17,8 @@ export default function Copyright({country}) {
       <section>
       <ul>
         {data.map((link) => (
-          <li>
-            <Link href={link.link} key={link.id}>
+          <li key={link.id}>
+            <Link href={link.link} >
               {link.name}
             </Link>
           </li>
