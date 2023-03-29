@@ -5,6 +5,7 @@ import GoogleProvider from 'next-auth/providers/google';
 import GitHubProvider from "next-auth/providers/github";
 // import EmailProvider from 'next-auth/providers/email'
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
+import Auth0Provider from "next-auth/providers/auth0";
 import clientPromise from "./lib/mongodb";
 export default NextAuth({
   adapter:MongoDBAdapter(clientPromise),
@@ -14,9 +15,18 @@ export default NextAuth({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET
     }),
-    AppleProvider({
-      clientId: process.env.APPLE_ID,
-      clientSecret: process.env.APPLE_SECRET
+    // AppleProvider({
+    //   clientId: process.env.APPLE_ID,
+    //   clientSecret: process.env.APPLE_SECRET
+    // }),
+    // TwitterProvider({
+    //   clientId: process.env.TWITTER_ID,
+    //   clientSecret: process.env.TWITTER_SECRET
+    // }),
+    Auth0Provider({
+      clientId: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
+      issuer: process.env.AUTH0_ISSUER
     }),
     FacebookProvider({
       clientId: process.env.FACEBOOK_ID,
@@ -33,7 +43,7 @@ export default NextAuth({
     // }),
   ],
   pages:{
-     //signIn: "/signin",
+     signIn: "/signin",
   },
   session:{
     strategy:"jwt",
