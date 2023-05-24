@@ -4,8 +4,8 @@ import styles from "./styles.module.scss";
 
 import { MdLocationOn } from "react-icons/md";
 const data = [
-  { id: 1, name: "privacy Center", link: "" },
-  { id: 2, name: "privacy & Cookie policy", link: "" },
+  { id: 1, name: "Privacy Center", link: "" },
+  { id: 2, name: "Privacy & Cookie policy", link: "" },
   { id: 3, name: "Manage Cookies", link: "" },
   { id: 4, name: "Terms & Conditions", link: "" },
   { id: 5, name: "Copyright Notice", link: "" },

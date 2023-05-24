@@ -27,17 +27,17 @@ export async function connectDb(){
 
 
 
-// export async function disconnectDb(){
-//     if(connection.isConnected){
-//       if(process.env.NODE_END === "production") {
-//         await mongoose.disconnect();
-//         connection.isConnected = false;
-//       }else {
-//         console.log("not disconnecting from the database");
-//       }
-//     }
-//   }
+export async function disconnectDb(){
+    if(connection.isConnected){
+      if(process.env.NODE_END === "production") {
+        await mongoose.disconnect();
+        connection.isConnected = false;
+      }else {
+        console.log("not disconnecting from the database");
+      }
+    }
+  }
   
-  const db = {connectDb};
+  const db = {connectDb,disconnectDb};
   
 export default db;
